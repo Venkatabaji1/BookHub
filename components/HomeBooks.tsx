@@ -27,15 +27,6 @@ export default function HomeBooks() {
     setError("");
 
     try {
-      const apiUrl =
-        process.env.NEXT_PUBLIC_TOP_RATED_BOOKS_API_URL;
-
-      if (!apiUrl) {
-        throw new Error(
-          "Top Rated Books API URL is not configured."
-        );
-      }
-
       const token = window.localStorage.getItem("bookhub_token");
 
       if (!token) {

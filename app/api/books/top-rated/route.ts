@@ -1,13 +1,8 @@
 export async function GET(request: Request) {
-  const apiUrl = process.env.NEXT_PUBLIC_TOP_RATED_BOOKS_API_URL;
+  const apiUrl =
+    process.env.NEXT_PUBLIC_TOP_RATED_BOOKS_API_URL ??
+    "https://apis.ccbp.in/book-hub/top-rated-books";
   const authorization = request.headers.get("authorization");
-
-  if (!apiUrl) {
-    return Response.json(
-      { error: "Top Rated Books API URL is not configured." },
-      { status: 500 }
-    );
-  }
 
   if (!authorization) {
     return Response.json(
