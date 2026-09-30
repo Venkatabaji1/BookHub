@@ -1,12 +1,6 @@
 export async function POST(request: Request) {
-  const apiUrl = process.env.NEXT_PUBLIC_LOGIN_API_URL;
-
-  if (!apiUrl) {
-    return Response.json(
-      { error: "Login API URL is not configured." },
-      { status: 500 }
-    );
-  }
+  const apiUrl =
+    process.env.NEXT_PUBLIC_LOGIN_API_URL ?? "https://apis.ccbp.in/login";
 
   try {
     const response = await fetch(apiUrl, {
